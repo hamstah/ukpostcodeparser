@@ -90,7 +90,7 @@ def parse_uk_postcode(postcode, strict=True, incode_mandatory=True):
                         >>> parse_uk_postcode('cr0', False, False)
                         ('CR0', '')
 
-    [1] http://www.upu.int/post_code/en/countries/GBR.pdf
+    [1] http://www.upu.int/fileadmin/documentsFiles/activities/addressingUnit/gbrEn.pdf
     [2] http://www.govtalk.gov.uk/gdsc/html/noframes/PostCode-2-1-Release.htm
     '''
 
