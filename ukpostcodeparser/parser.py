@@ -91,7 +91,7 @@ def parse_uk_postcode(postcode, strict=True, incode_mandatory=True):
                         ('CR0', '')
 
     [1] http://www.upu.int/fileadmin/documentsFiles/activities/addressingUnit/gbrEn.pdf
-    [2] http://www.govtalk.gov.uk/gdsc/html/noframes/PostCode-2-1-Release.htm
+    [2] http://web.archive.org/web/20090930140939/http://www.govtalk.gov.uk/gdsc/html/noframes/PostCode-2-1-Release.htm
     '''
 
     postcode = postcode.replace(' ', '').upper()  # Normalize
