@@ -45,6 +45,7 @@ OUTCODE_PATTERN = (r'(' +
                    r')(?:\d[' +
                    ''.join(FOURTH_POS_CHARS) +
                    r']|\d{1,2}))' +
+                   r'|(?:BF1)' +  # special case for british forces postcodes
                    r')')
 INCODE_PATTERN = (r'(\d[' +
                   ''.join(INCODE_CHARS) +
