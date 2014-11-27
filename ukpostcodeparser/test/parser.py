@@ -3,6 +3,8 @@ import unittest
 from ukpostcodeparser import parse_uk_postcode
 
 test_data = [
+    ('BF1 4BB', False, False, ('BF1', '4BB')),
+    ('BF2 4BB', False, False, ('BF2', '4BB')),
     ('cr0 2yr', False, False, ('CR0', '2YR')),
     ('CR0 2YR', False, False, ('CR0', '2YR')),
     ('cr02yr', False, False, ('CR0', '2YR')),
@@ -35,6 +37,8 @@ test_data = [
     ('w1m', False, False, ('W1M', '')),
     ('dn169aaA', False, False, 'ValueError'),
 
+    ('BF1 4BB', False, True, ('BF1', '4BB')),
+    ('BF2 4BB', False, True, ('BF2', '4BB')),
     ('cr0 2yr', False, True, ('CR0', '2YR')),
     ('CR0 2YR', False, True, ('CR0', '2YR')),
     ('cr02yr', False, True, ('CR0', '2YR')),
@@ -67,6 +71,8 @@ test_data = [
     ('w1m', False, True, 'ValueError'),
     ('dn169aaA', False, True, 'ValueError'),
 
+    ('BF1 4BB', True, False, ('BF1', '4BB')),
+    ('BF2 4BB', True, False, ('ValueError')),
     ('cr0 2yr', True, False, ('CR0', '2YR')),
     ('CR0 2YR', True, False, ('CR0', '2YR')),
     ('cr02yr', True, False, ('CR0', '2YR')),
@@ -99,6 +105,9 @@ test_data = [
     ('w1m', True, False, 'ValueError'),
     ('dn169aaA', True, False, 'ValueError'),
 
+    ('BF1 4BB', True, True, ('BF1', '4BB')),
+    ('BF1 ERR', True, True, ('ValueError')),
+    ('BF2 4BB', True, True, ('ValueError')),
     ('cr0 2yr', True, True, ('CR0', '2YR')),
     ('CR0 2YR', True, True, ('CR0', '2YR')),
     ('cr02yr', True, True, ('CR0', '2YR')),
