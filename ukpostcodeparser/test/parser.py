@@ -139,6 +139,11 @@ test_data = [
     ('w1m 4zz', True, True, 'ValueError'),
     ('w1m', True, True, 'ValueError'),
     ('dn169aaA', True, True, 'ValueError'),
+    ('N1P 2ZX', True, False, ('N1P', '2ZX')),
+    ('n1p', True, False, ('N1P', '')),
+    ('n1p1gw', True, True, ('N1P', '1GW')),
+    ('NPT 0DT', True, True, 'ValueError'),
+    ('npt', True, False, 'ValueError'),
 ]
 
 
