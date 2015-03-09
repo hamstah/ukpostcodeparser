@@ -27,8 +27,8 @@ POSTAL_ZONES = ['AB', 'AL', 'B' , 'BA', 'BB', 'BD', 'BH', 'BL', 'BN', 'BR',
                 'WS', 'WV', 'YO', 'ZE']
 POSTAL_ZONES_ONE_CHAR = [zone for zone in POSTAL_ZONES if len(zone) == 1]
 POSTAL_ZONES_TWO_CHARS = [zone for zone in POSTAL_ZONES if len(zone) == 2]
-THIRD_POS_CHARS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'P',
-                   'S', 'T', 'U', 'W']
+THIRD_POS_CHARS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'M',
+                   'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y']
 FOURTH_POS_CHARS = ['A', 'B', 'E', 'H', 'M', 'N', 'P', 'R', 'V', 'W', 'X',
                     'Y']
 INCODE_CHARS = ['A', 'B', 'D', 'E', 'F', 'G', 'H', 'J', 'L', 'N', 'P', 'Q',
