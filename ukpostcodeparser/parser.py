@@ -11,6 +11,9 @@ Provides the parse_uk_postcode function for parsing UK postcodes.'''
 
 import re
 
+from ukpostcodeparser import exceptions
+
+
 # Build up the regex patterns piece by piece
 POSTAL_ZONES = ['AB', 'AL', 'B' , 'BA', 'BB', 'BD', 'BH', 'BL', 'BN', 'BR',
                 'BS', 'BT', 'CA', 'CB', 'CF', 'CH', 'CM', 'CO', 'CR', 'CT',
@@ -98,7 +101,7 @@ def parse_uk_postcode(postcode, strict=True, incode_mandatory=True):
     postcode = postcode.replace(' ', '').upper()  # Normalize
 
     if len(postcode) > 7:
-        raise ValueError('Incode mandatory')
+        raise exceptions.MaxLengthExceededError()
 
     # Validate postcode
     if strict:
@@ -112,7 +115,7 @@ def parse_uk_postcode(postcode, strict=True, incode_mandatory=True):
         outcode_match = STANDALONE_OUTCODE_REGEX.match(postcode)
         if outcode_match:
             if incode_mandatory:
-                raise ValueError('Incode mandatory')
+                raise exceptions.IncodeNotFoundError('Incode mandatory')
             else:
                 return outcode_match.group(1), ''
 
@@ -121,19 +124,21 @@ def parse_uk_postcode(postcode, strict=True, incode_mandatory=True):
             return 'GIR', '0AA'
         elif postcode == 'GIR':
             if incode_mandatory:
-                raise ValueError('Incode mandatory')
+                raise exceptions.IncodeNotFoundError('Incode mandatory')
             else:
                 return 'GIR', ''
 
         # None of the above
-        raise ValueError('Invalid postcode')
+        raise exceptions.InvalidPostcodeError(
+            'Value provided does not align with UK postcode rules'
+        )
 
     # Just chop up whatever we've been given.
     else:
         # Outcode only
         if len(postcode) <= 4:
             if incode_mandatory:
-                raise ValueError('Incode mandatory')
+                raise exceptions.IncodeNotFoundError('Incode mandatory')
             else:
                 return postcode, ''
         # Full postcode
